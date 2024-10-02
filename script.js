@@ -71,3 +71,28 @@ $(document).ready(function(){
         }
     });
 });
+
+//For contact form
+function  sendMail(){
+
+    var name = document.getElementById("name").value;
+    var email = document.getElementById("email").value;
+    var subject = document.getElementById("subject").value;
+    var message = document.getElementById("message").value;
+
+    if (name == "" || email == "" || subject == "" || message == "") {
+        alert("All fields must be filled out");
+    } else {
+        let parms = {
+            name : document.getElementById("name").value,
+            email : document.getElementById("email").value,
+            subject : document.getElementById("subject").value,
+            message : document.getElementById("message").value,
+        }
+    
+        emailjs.send("service_2jgefpa","template_mkyykvh", parms)
+           
+        alert("Form submitted successfully!");
+        document.getElementById("contactForm").reset();
+    }
+}
